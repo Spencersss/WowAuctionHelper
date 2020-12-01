@@ -6,7 +6,7 @@ public class AccessToken {
     private final long expiryTime;
 
     public AccessToken (String tokenValue) {
-        this.value = tokenValue;
+        this.value = tokenValue.replaceAll("^\"+|\"+$", "");
         this.expiryTime = System.currentTimeMillis();
     }
 

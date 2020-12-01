@@ -3,11 +3,14 @@ package front;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import model.AccessToken;
+import model.AuctionHouseData;
+import model.requests.AuctionHouseRequest;
 import okhttp3.*;
 import model.requests.AccessTokenRequest;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class Main {
 
@@ -35,9 +38,11 @@ public class Main {
             Response response = req.getResponse();
             AccessToken token = req.getToken();
 
-            Main.printWithPrefix(token.getValue());
+            AuctionHouseRequest aucHouseReq = new AuctionHouseRequest(client, token);
+            if (aucHouseReq.wasSuccessful()) {
+                AuctionHouseData data = new AuctionHouseData(aucHouseReq.getResponse());
+            }
         }
-        //new LogicHandler(, client);
     }
 
 }
