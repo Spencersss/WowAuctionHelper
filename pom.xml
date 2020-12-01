@@ -14,7 +14,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>front.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
